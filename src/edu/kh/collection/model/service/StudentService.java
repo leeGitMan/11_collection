@@ -25,20 +25,20 @@ public class StudentService {
 	
 	
 	// ArrayList() 기본생성자 : --> 기본 크기 10짜리 리스트 생성
-	// 							 List크기가 늘었다 줄었다 하기에 큰 의마가 없다
+	// 							 List크기가 늘었다 줄었다 하기에 큰 의미가 없다
 	
 	// ArrayList(용량) : 용량 만큼의 리스트 생성
 	//					너무 큰 값을 적으면 메모리 소모가 큼
 	
-	//List studentList = new ArrayList();
-	private List<Student> studentList = new ArrayList<Student>(); // 검색 조회 효율적
-	// List<Student> studentList = new Linked<Student>(); // 추가, 삭제, 수정 효율적
+	// List studentList = new ArrayList();
+	   private List<Student> studentList = new ArrayList<Student>(); // 검색 조회 효율적
 	// Student로 저장되는 타입이 제한된 리스트 생성
 	// --> Student만 저장가능하고, 이 안에 있는 모든 게 Student다
+	// List<Student> studentList = new Linked<Student>(); // 추가, 삭제, 수정 효율적
 	
 	
 	public StudentService() {
-		studentList.add(new Student("홍길동", 25, "서울시 중구", 'M', 90));
+		studentList.add(new Student("홍길동", 25, "서울시 중구", 'M', 90)); // 반환 타입(리턴 타입) void
 		studentList.add(new Student("고영희", 23, "경기도 안산시", 'F', 100));
 		studentList.add(new Student("김아지", 30, "서울시 강남구", 'M', 80));
 		studentList.add(new Student("오미나", 27, "충북 청주시", 'F', 90));
@@ -50,7 +50,7 @@ public class StudentService {
 		// List 테스트
 		
 		// List.add(Object e) : 리스트에 객체를 추가하는 용도
-		// * 매개변수 타입이 Object 인데 == 모든 객체를 매개변수로 전달할 수 있따는 뜻
+		// * 매개변수 타입이 Object 인데 == 모든 객체를 매개변수로 전달할 수 있다는 뜻
 		// (매개변수 Object == 최상위 부모 참조변수 == 다형성 적용이 가능하다)
 		
 		studentList.add(new Student());// 0번 인덱스
@@ -63,7 +63,7 @@ public class StudentService {
 		
 		// (반환형)
 		
-		// List.get(index i) : List에서 i번 째 인덱스에 있는 객체(Object)를 반환함
+		// List.get(index i) : List에서 i번 째 인덱스에 있는 객체(Object)를 반환함 // 리턴타입 E --> 주어진 객체를 반환
 		// 반환형이 Object == 모든 객체를 반환할 수 있다는 뜻
 		
 		// System.out.println(studentList.get(2).toString());
@@ -88,7 +88,7 @@ public class StudentService {
 		// <> 이렇게 쓴다
 		// -> 컬렉션에 저장되는 객체 타입을 한 가지로만 제한
 		
-		System.out.println(studentList.get(0).getName());
+	//	System.out.println(studentList.get(0).getName());
 		
 		
 		
@@ -302,7 +302,8 @@ public class StudentService {
 			// 입력 받은 index번 째 새로운 학생 정보를 세팅 == 수정
 			// 이때, index번째에 있던 기존 학생 정보가 반환됨
 			
-			Student temp = studentList.set(index, new Student(name, age, region, gender, score));
+			Student temp = studentList.set(index, new Student(name, age, region, gender, score)); 
+			// 기존의 객체를 반환 하기에 temp에 담아둔다.
 			
 			return temp.getName() + "의 정보가 변경되었습니다.";
 			
